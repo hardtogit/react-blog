@@ -15,7 +15,7 @@ function clearUserInfo() {
 function fetchUserInfo() {
     return dispatch => {
         utils.ajax({
-            url: '/mobile_api/user/info',
+            url: '/mobile_api/api/depositSupervise/projectLists?page=1&pageSize=100000000',
             type: 'get'
         }).then(res => {
             dispatch(replaceUserInfo(res))
