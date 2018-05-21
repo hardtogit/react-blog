@@ -42,6 +42,14 @@ module.exports = {
                 'css?modules&camelCase&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:8]',
                 'sass'
             ]
+        },{
+            test: /\.less$/,
+            loaders: [
+                'style',
+                'css?modules&camelCase&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:8]',
+                'less'
+            ]
+            // loader: 'style!css?modules&importLoaders=1&localIdentName=[local]___[hash:base64:5]!postcss!less'
         }, {
             test: /\.(jpg|png|gif|webp)$/,
             loader: 'url?limit=8000'

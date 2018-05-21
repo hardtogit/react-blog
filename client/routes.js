@@ -12,25 +12,21 @@ const routes = {
         indexRoute: {
             getComponent(nextState, callback) {
                 require.ensure([], require => {
-                    callback(null, require('./home/containers/App'))
-                }, 'home')
+                    callback(null, require('./pages/admin/userFrom/index'))
+                }, 'userFrom')
+
             }
         },
-        childRoutes: [{
-            path: 'explore',
-            getComponent(nextState, callback) {
-                require.ensure([], require => {
-                    callback(null, require('./explore/containers/App'))
-                }, 'explore')
-            }
-        }, {
-            path: 'about',
-            getComponent(nextState, callback) {
-                require.ensure([], require => {
-                    callback(null, require('./about/containers/App'))
-                }, 'about')
-            }
-        }]
+        childRoutes: [
+        //     {
+        //     path: 'explore',
+        //     getComponent(nextState, callback) {
+        //         require.ensure([], require => {
+        //             callback(null, require('./explore/containers/App'))
+        //         }, 'explore')
+        //     }
+        // }
+        ]
     }]
 }
 
