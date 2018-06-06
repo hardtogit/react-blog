@@ -3,21 +3,22 @@ import {renderToString} from 'react-dom/server'
 import {match, RouterContext} from 'react-router'
 import {Provider} from 'react-redux'
 import routes from '../../client/routes'
+import MyProvider from '../../client/common/components/MyProvitor'
 import configureStore from '../../client/common/store/configureStore'
-
-const store = configureStore()
-console.log(store)
+const store = configureStore();
 async function clientRoute(ctx, next) {
-    let _renderProps
+    let _renderProps;
     match({routes, location: ctx.url}, (error, redirectLocation, renderProps) => {
         _renderProps = renderProps
-    })
+    });
 
     if (_renderProps) {
         await ctx.render('index', {
             root: renderToString(
                 <Provider store={store}>
+                    <MyProvider>
                     <RouterContext {..._renderProps}/>
+                    </MyProvider>
                 </Provider>
             ),
             state: store.getState()

@@ -1,4 +1,4 @@
-import types from '../constants/actionTypes'
+import * as types from '../constants/actionTypes'
 import utils from '../../shared/utils'
 
 function replaceUserInfo(userInfo) {
@@ -15,16 +15,28 @@ function clearUserInfo() {
 function fetchUserInfo() {
     return dispatch => {
         utils.ajax({
-            url: '/mobile_api/api/depositSupervise/projectLists?page=1&pageSize=100000000',
+            url: '/mobile_api/user/info',
             type: 'get'
         }).then(res => {
             dispatch(replaceUserInfo(res))
         })
     }
 }
+function fetchData(...args) {
+    const {type,params}=args
+
+
+    return dispatch=>{
+
+
+    }
+}
+
+
+
+
 
 export default {
-    replaceUserInfo,
     fetchUserInfo,
     clearUserInfo
 }

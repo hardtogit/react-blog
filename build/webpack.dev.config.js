@@ -35,6 +35,9 @@ module.exports = {
                 plugins: ['transform-runtime', 'add-module-exports'],
                 cacheDirectory: true
             }
+        },{
+            test: /\.css$/,
+            loader: 'style!css'
         }, {
             test: /\.scss$/,
             loaders: [

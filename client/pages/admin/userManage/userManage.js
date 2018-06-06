@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import styles from './index.scss'
 import Component from '../../../common/components/MyComponent'
-import { DatePicker } from 'antd';
 class Index extends Component{
 
     constructor(props){
@@ -18,17 +17,19 @@ class Index extends Component{
 
     }
     render(){
+        console.log(this.props.userInfo)
         return(
             <div className={styles.sectionBg}>
-                {this.props.userInfo&&this.props.userInfo.message}
+                {this.props.userInfo.message}
+                我是usermanage
             </div>
         )
     }
 }
 const mapStateToProps=(state)=>{
-    console.log(state.userInfo.get('data'));
+    console.log(state);
     return ({
-        userInfo:state.userInfo.get('data')&&state.userInfo.get('data').toJS()
+        userInfo:state.userInfo.get('data')
     })
 }
 const mapDisPatchToProps=(dispatch)=>({

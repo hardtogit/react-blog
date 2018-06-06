@@ -1,4 +1,5 @@
 // Provide custom regenerator runtime and core-js
+const lessParser = require('postcss-less').parse;
 require('babel-polyfill')
 
 // Node babel source map support
@@ -21,7 +22,10 @@ require('css-modules-require-hook')({
     camelCase: true,
     generateScopedName: '[name]__[local]__[hash:base64:8]'
 })
-
+require('css-modules-require-hook')({
+    extensions: '.less',
+    processorOpts: {parser: lessParser},
+});
 // Image require hook
 require('asset-require-hook')({
     name: '/[hash].[ext]',
